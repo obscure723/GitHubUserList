@@ -1,0 +1,40 @@
+PODS:
+  - Action (4.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - APIKit (5.0.0)
+  - FontAwesome.swift (1.8.2)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+
+DEPENDENCIES:
+  - Action
+  - APIKit (~> 5.0)
+  - FontAwesome.swift
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
+
+SPEC REPOS:
+  trunk:
+    - Action
+    - APIKit
+    - FontAwesome.swift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Action: 0d14986aad0f1330aa27ce65d0cdeaacbb63d91c
+  APIKit: b27d79b022733b2f50e7a092e67c4cb9ea30f968
+  FontAwesome.swift: 7938d6a03113ff3f39001bde7f50be8a0903d605
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+
+PODFILE CHECKSUM: 562d4aabf4f14e2c216d91d60d936507dcc53043
+
+COCOAPODS: 1.8.4
