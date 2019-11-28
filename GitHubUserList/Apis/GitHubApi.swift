@@ -42,7 +42,7 @@ final class GitHubApi {
         
         let method: HTTPMethod = .get
         var path: String {
-            return "/user/\(username)"
+            return "/users/\(username)"
         }
         
         init(username: String) {
@@ -50,14 +50,14 @@ final class GitHubApi {
         }
         
         
-        func response(from object: Any, urlResponse: HTTPURLResponse) throws -> GitHubUser {
+        func response(from object: Any, urlResponse: HTTPURLResponse) throws -> GitHubUserDetailResponse {
             
             guard let data = object as? Data else {
                 throw ResponseError.unexpectedObject(object)
             }
             
             let response = try JSONDecoder().decode(GitHubUserDetailResponse.self, from: data)
-            return response.user
+            return response
             
         }
         

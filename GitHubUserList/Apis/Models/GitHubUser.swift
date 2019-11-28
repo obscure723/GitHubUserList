@@ -14,24 +14,18 @@ struct GitHubUser: Decodable {
     let id: Int
     let siteAdmin: Bool
     let avatarUrl: String
-    let bio: String?
     
     private enum CodingKeys: String, CodingKey {
         case login
         case id
         case siteAdmin = "site_admin"
         case avatarUrl = "avatar_url"
-        case bio
     }
     
 }
 
 struct GitHubUserResponse: Decodable {
     let users: [GitHubUser]
-}
-
-struct GitHubUserDetailResponse: Decodable {
-    let user: GitHubUser
 }
 
 extension GitHubUserResponse {

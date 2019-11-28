@@ -9,6 +9,8 @@
 import Foundation
 import Action
 import APIKit
+import RxSwift
+import RxCocoa
 
 protocol UserDetailViewModelInputs {
 
@@ -16,7 +18,7 @@ protocol UserDetailViewModelInputs {
 
 protocol UserDetailViewModelOutputs {
 
-    var gitHubUser: GitHubUser { get }
+    var gitHubUserDetail: Observable<GitHubUserDetailResponse> { get }
 }
 
 protocol UserDetailViewModelType {
@@ -30,16 +32,18 @@ final class UserDetailViewModel: UserDetailViewModelInputs, UserDetailViewModelO
     var inputs: UserDetailViewModelInputs { return self }
     var outputs: UserDetailViewModelOutputs { return self }
     
-    var gitHubUser: GitHubUser
+    var gitHubUserDetail: Observable<GitHubUserDetailResponse>
     
-    private let searchAction: Action<String, GitHubUser>
+    private let searchAction: Action<String, GitHubUserDetailResponse>
     
-    init(gitHubUser: GitHubUser) {
-        self.gitHubUser = gitHubUser
+    init(username: String) {
         
-        self.searchAction = Action { username in
+        self.searchAction = Action { _ in
             return Session.shared.rx.response(GitHubApi.SearchUserDetailRequest(username: username))
         }
+        
+        let response = PublishRelay<GitHubUserDetailResponse>()
+        self.gitHubUserDetail = response.asObservable()
     }
     
 }

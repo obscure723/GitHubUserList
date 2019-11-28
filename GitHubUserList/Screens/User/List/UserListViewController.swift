@@ -48,7 +48,7 @@ class UserListViewController: UIViewController {
         tableView.rx.modelSelected(GitHubUser.self)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                let detailVC = UserDetailViewController.make(with: UserDetailViewModel(gitHubUser: $0))
+                let detailVC = UserDetailViewController.make(with: $0.login)
                 self?.present(detailVC, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
